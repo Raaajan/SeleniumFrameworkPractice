@@ -1,0 +1,22 @@
+package tests;
+
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.chrome.ChromeDriver;
+import org.testng.annotations.AfterSuite;
+import org.testng.annotations.BeforeSuite;
+
+public class BaseTest {
+
+   protected static WebDriver driver;
+    @BeforeSuite
+    public void setUp(){
+        driver = new ChromeDriver();
+        driver.get("https://rahulshettyacademy.com/client/#/auth/login");
+        driver.manage().window().maximize();
+    }
+
+    @AfterSuite
+    public void tearDown(){
+     driver.quit();
+    }
+}
